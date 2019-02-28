@@ -15,7 +15,6 @@ RUN yum install -y \
   libXtst-devel \
   java-1.7.0-openjdk-devel \
   nano \
-  git \
   patch \
   redhat-lsb-core \
   sudo \
@@ -49,3 +48,8 @@ RUN conda update -n base conda
 RUN conda install -y gmp isl mpfr mpc gcc
 RUN conda install -y -c conda-forge perl=5.26.2
 RUN conda install -y awscli pyyaml
+RUN conda install -y -c anaconda git
+
+RUN cd /home/conda \ 
+  && git clone https://github.com/compbiocore/jupyterfleet.git \
+  && git clone https://github.com/compbiocore/cbc-workshop-directory.git
